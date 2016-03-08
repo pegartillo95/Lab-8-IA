@@ -1,0 +1,55 @@
+; Tue Feb 23 10:53:59 CET 2016
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot price
+		(type FLOAT)
+		(range 0.0 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot difficulty
+		(type SYMBOL)
+		(allowed-values alta media baja)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot style
+		(type SYMBOL)
+		(allowed-values cooperative)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass Game
+	(is-a USER)
+	(role abstract)
+	(single-slot difficulty
+		(type SYMBOL)
+		(allowed-values alta media baja)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot style
+		(type SYMBOL)
+		(allowed-values cooperative)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot price
+		(type FLOAT)
+		(range 0.0 %3FVARIABLE)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
+
+(defclass games_less20
+	(is-a Game)
+	(role concrete))
