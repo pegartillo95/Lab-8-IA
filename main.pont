@@ -1,4 +1,4 @@
-; Tue Feb 23 10:53:59 CET 2016
+; Tue Mar 08 10:11:04 CET 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -40,16 +40,40 @@
 		(allowed-values cooperative)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot duration
-		(type INTEGER)
-;+		(cardinality 1 1)
-		(create-accessor read-write))
 	(single-slot price
 		(type FLOAT)
 		(range 0.0 %3FVARIABLE)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INTEGER)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
-(defclass games_less20
+(defclass Games_by_price
+	(is-a Game)
+	(role concrete))
+
+(defclass games_10_to_20
+	(is-a Games_by_price)
+	(role concrete))
+
+(defclass games_less10
+	(is-a Games_by_price)
+	(role concrete))
+
+(defclass Games_by_dificulty
+	(is-a Game)
+	(role concrete))
+
+(defclass Games_by_age
+	(is-a Game)
+	(role concrete))
+
+(defclass Games_by_category
+	(is-a Game)
+	(role concrete))
+
+(defclass Games_by_duration
 	(is-a Game)
 	(role concrete))

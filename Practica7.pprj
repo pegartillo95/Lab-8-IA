@@ -1,4 +1,4 @@
-; Tue Feb 23 10:53:59 CET 2016
+; Tue Mar 08 10:11:04 CET 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -62,9 +62,6 @@
 ([INSTANCES_TAB] of  Widget
 
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
-
-([KB_326300_Class0] of  Map
-)
 
 ([KB_724723_Class0] of  String
 
@@ -165,6 +162,9 @@
 
 	(name "classes_file_name")
 	(string_value "main.pont"))
+
+([KB_908784_Class0] of  Map
+)
 
 ([LAYOUT_PROPERTIES] of  Property_List
 
@@ -579,13 +579,13 @@
 
 ([Practica7_ProjectKB_Class76] of  String
 
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([Practica7_ProjectKB_Class77] of  String
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
 
 ([Practica7_ProjectKB_Class8] of  Property_List
 )
@@ -601,8 +601,8 @@
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_SLOT_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET]
+		[STANDARD_SLOT_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
