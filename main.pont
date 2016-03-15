@@ -1,4 +1,4 @@
-; Tue Mar 08 10:11:04 CET 2016
+; Tue Mar 15 09:52:34 CET 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -7,24 +7,76 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
+	(multislot Designer_location
+		(type INSTANCE)
+;+		(allowed-classes Location)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot Name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot price
 		(type FLOAT)
 		(range 0.0 %3FVARIABLE)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Store_name
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Designer_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot style
+		(type SYMBOL)
+		(allowed-values cooperative)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Store_location
+		(type INSTANCE)
+;+		(allowed-classes Manufacturer)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot difficulty
 		(type SYMBOL)
 		(allowed-values alta media baja)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot Practica7_Class27
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Manufacturer_name
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Practica7_Class24
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Practica7_Class25
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot duration
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot style
+	(single-slot Developper_name
 		(type SYMBOL)
-		(allowed-values cooperative)
-;+		(cardinality 1 1)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot category
+		(type SYMBOL)
+		(allowed-values Adventure Sports Puzzle Family Rol Strategy)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Manufacturer_location
+		(type INSTANCE)
+;+		(allowed-classes Location)
+		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write)))
 
 (defclass Game
@@ -40,25 +92,66 @@
 		(allowed-values cooperative)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot price
-		(type FLOAT)
-		(range 0.0 %3FVARIABLE)
+	(single-slot category
+		(type SYMBOL)
+		(allowed-values Adventure Sports Puzzle Family Rol Strategy)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot duration
 		(type INTEGER)
 ;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot price
+		(type FLOAT)
+		(range 0.0 %3FVARIABLE)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
+
+(defclass Game_by_age
+	(is-a Game)
+	(role concrete))
+
+(defclass Game_all_publics_age
+	(is-a Game_by_age)
+	(role concrete))
+
+(defclass Game_less_10_age
+	(is-a Game_by_age)
+	(role concrete))
+
+(defclass Game_less_14_age
+	(is-a Game_by_age)
+	(role concrete))
+
+(defclass Game_less_18_age
+	(is-a Game_by_age)
+	(role concrete))
 
 (defclass Games_by_price
 	(is-a Game)
 	(role concrete))
 
-(defclass games_10_to_20
+(defclass Game_less_10_price
 	(is-a Games_by_price)
 	(role concrete))
 
-(defclass games_less10
+(defclass Game_10_to_20_price
+	(is-a Games_by_price)
+	(role concrete))
+
+(defclass Game_20_to_30_price
+	(is-a Games_by_price)
+	(role concrete))
+
+(defclass Game_30_to_40_price
+	(is-a Games_by_price)
+	(role concrete))
+
+(defclass Game_40_to_50_price
+	(is-a Games_by_price)
+	(role concrete))
+
+(defclass Game_50_to_60_price
 	(is-a Games_by_price)
 	(role concrete))
 
@@ -66,14 +159,113 @@
 	(is-a Game)
 	(role concrete))
 
-(defclass Games_by_age
-	(is-a Game)
+(defclass Game_easy_diff
+	(is-a Games_by_dificulty)
+	(role concrete))
+
+(defclass Game_medium_diff
+	(is-a Games_by_dificulty)
+	(role concrete))
+
+(defclass Game_hard_diff
+	(is-a Games_by_dificulty)
 	(role concrete))
 
 (defclass Games_by_category
 	(is-a Game)
 	(role concrete))
 
+(defclass Game_family_cat
+	(is-a Games_by_category)
+	(role concrete))
+
+(defclass Game_adventure_cat
+	(is-a Games_by_category)
+	(role concrete))
+
+(defclass Game_puzzle_cat
+	(is-a Games_by_category)
+	(role concrete))
+
+(defclass Game_sports_cat
+	(is-a Games_by_category)
+	(role concrete))
+
+(defclass Game_rol_cat
+	(is-a Games_by_category)
+	(role concrete))
+
+(defclass Game_strategy_cat
+	(is-a Games_by_category)
+	(role concrete))
+
 (defclass Games_by_duration
 	(is-a Game)
 	(role concrete))
+
+(defclass Game_long_duration
+	(is-a Games_by_duration)
+	(role concrete))
+
+(defclass Game_medium_duration
+	(is-a Games_by_duration)
+	(role concrete))
+
+(defclass Game_short_duration
+	(is-a Games_by_duration)
+	(role concrete))
+
+(defclass Manufacturer
+	(is-a USER)
+	(role concrete)
+	(single-slot Manufacturer_name
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(multislot Manufacturer_location
+		(type INSTANCE)
+;+		(allowed-classes Location)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write)))
+
+(defclass Designer
+	(is-a USER)
+	(role concrete)
+	(multislot Designer_location
+		(type INSTANCE)
+;+		(allowed-classes Location)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(single-slot Designer_name
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Location
+	(is-a USER)
+	(role concrete))
+
+(defclass Location_continent
+	(is-a Location)
+	(role concrete))
+
+(defclass Location_country
+	(is-a Location)
+	(role concrete))
+
+(defclass Location_city
+	(is-a Location)
+	(role concrete))
+
+(defclass Store
+	(is-a USER)
+	(role concrete)
+	(single-slot Store_location
+		(type INSTANCE)
+;+		(allowed-classes Manufacturer)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Store_name
+		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
