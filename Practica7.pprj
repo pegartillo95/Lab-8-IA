@@ -1,4 +1,4 @@
-; Tue Mar 15 09:52:34 CET 2016
+; Tue Mar 15 10:21:40 CET 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[Practica7_ProjectKB_Class90]
-		[Practica7_ProjectKB_Class91]
-		[Practica7_ProjectKB_Class92]))
+		[Practica7_ProjectKB_Class100]
+		[Practica7_ProjectKB_Class10101]
+		[Practica7_ProjectKB_Class10102]))
 
 ([CLSES_TAB] of  Widget
 
@@ -62,9 +62,6 @@
 ([INSTANCES_TAB] of  Widget
 
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
-
-([KB_260984_Class0] of  Map
-)
 
 ([KB_724723_Class0] of  String
 
@@ -166,6 +163,9 @@
 	(name "classes_file_name")
 	(string_value "main.pont"))
 
+([KB_989743_Class0] of  Map
+)
+
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
@@ -253,9 +253,25 @@
 ([Practica7_ProjectKB_Class10] of  Property_List
 )
 
+([Practica7_ProjectKB_Class100] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
 ([Practica7_ProjectKB_Class101] of  String
 
-	(name "SearchTab_Query"))
+	(name "SearchTab_Query")
+	(string_value "Query Name: Strategy games with less than one hour\nMatch All:true\nLength: 1\nGame_strategy_cat	duration	is less than	Other:60	1	\n\nQuery Name: Less 50; Hard, Short and Coop\nMatch All:true\nLength: 4\nGame_less_50_price	 		Other:	1	\nGame_hard_diff	 		Other:	1	\nGame_cooperative_style	 		Other:	1	\nGame_short_duration	 		Other:	1	\n\n"))
+
+([Practica7_ProjectKB_Class10101] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
+([Practica7_ProjectKB_Class10102] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
 
 ([Practica7_ProjectKB_Class11] of  Widget
 
@@ -575,26 +591,80 @@
 ([Practica7_ProjectKB_Class8] of  Property_List
 )
 
+([Practica7_ProjectKB_Class84] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "Country")
+	(property_list [Practica7_ProjectKB_Class85])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([Practica7_ProjectKB_Class85] of  Property_List
+)
+
+([Practica7_ProjectKB_Class86] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "Continent")
+	(property_list [Practica7_ProjectKB_Class87])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 60))
+
+([Practica7_ProjectKB_Class87] of  Property_List
+)
+
 ([Practica7_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [Practica7_ProjectKB_Class10])
 	(widget_class_name "uk.ac.man.cs.mig.coode.debugger.test.DebuggerTestTab"))
 
-([Practica7_ProjectKB_Class90] of  String
+([Practica7_ProjectKB_Class90] of  Widget
 
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
+	(height 60)
+	(is_hidden FALSE)
+	(name "Continent")
+	(property_list [Practica7_ProjectKB_Class91])
+	(widget_class_name "edu.stanford.smi.protege.widget.IntegerFieldWidget")
+	(width 100)
+	(x 0)
+	(y 180))
 
-([Practica7_ProjectKB_Class91] of  String
+([Practica7_ProjectKB_Class91] of  Property_List
+)
 
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
+([Practica7_ProjectKB_Class94] of  Widget
 
-([Practica7_ProjectKB_Class92] of  String
+	(height 60)
+	(is_hidden FALSE)
+	(name "Country")
+	(property_list [Practica7_ProjectKB_Class95])
+	(widget_class_name "edu.stanford.smi.protege.widget.InstanceFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
 
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
+([Practica7_ProjectKB_Class95] of  Property_List
+
+	(properties
+		[Practica7_ProjectKB_Class96]
+		[Practica7_ProjectKB_Class97]))
+
+([Practica7_ProjectKB_Class96] of  Boolean
+
+	(boolean_value FALSE)
+	(name "ButtonDisplayed-View References to Value"))
+
+([Practica7_ProjectKB_Class97] of  Boolean
+
+	(boolean_value FALSE)
+	(name "ButtonDisplayed-Delete Instance"))
 
 ([PROJECT] of  Project
 

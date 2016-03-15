@@ -1,4 +1,4 @@
-; Tue Mar 15 09:52:34 CET 2016
+; Tue Mar 15 10:21:40 CET 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -29,9 +29,14 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Continent
+		(type SYMBOL)
+		(allowed-values Europe America)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot style
 		(type SYMBOL)
-		(allowed-values cooperative)
+		(allowed-values cooperative single_player)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Store_location
@@ -44,12 +49,18 @@
 		(allowed-values alta media baja)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot City
+		(type SYMBOL)
+		(allowed-values Ohio Madrid)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot Practica7_Class27
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot Manufacturer_name
-		(type STRING)
+		(type SYMBOL)
+		(allowed-values Cocktail_Games)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Practica7_Class24
@@ -62,6 +73,11 @@
 		(create-accessor read-write))
 	(single-slot duration
 		(type INTEGER)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Country
+		(type SYMBOL)
+		(allowed-values United_States)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot Developper_name
@@ -81,7 +97,7 @@
 
 (defclass Game
 	(is-a USER)
-	(role abstract)
+	(role concrete)
 	(single-slot difficulty
 		(type SYMBOL)
 		(allowed-values alta media baja)
@@ -89,7 +105,7 @@
 		(create-accessor read-write))
 	(single-slot style
 		(type SYMBOL)
-		(allowed-values cooperative)
+		(allowed-values cooperative single_player)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot category
@@ -109,7 +125,7 @@
 
 (defclass Game_by_age
 	(is-a Game)
-	(role concrete))
+	(role abstract))
 
 (defclass Game_all_publics_age
 	(is-a Game_by_age)
@@ -129,35 +145,35 @@
 
 (defclass Games_by_price
 	(is-a Game)
-	(role concrete))
+	(role abstract))
 
 (defclass Game_less_10_price
 	(is-a Games_by_price)
 	(role concrete))
 
-(defclass Game_10_to_20_price
+(defclass Game_less_20_price
 	(is-a Games_by_price)
 	(role concrete))
 
-(defclass Game_20_to_30_price
+(defclass Game_less_30_price
 	(is-a Games_by_price)
 	(role concrete))
 
-(defclass Game_30_to_40_price
+(defclass Game_less_40_price
 	(is-a Games_by_price)
 	(role concrete))
 
-(defclass Game_40_to_50_price
+(defclass Game_less_50_price
 	(is-a Games_by_price)
 	(role concrete))
 
-(defclass Game_50_to_60_price
+(defclass Game_more_50_price
 	(is-a Games_by_price)
 	(role concrete))
 
 (defclass Games_by_dificulty
 	(is-a Game)
-	(role concrete))
+	(role abstract))
 
 (defclass Game_easy_diff
 	(is-a Games_by_dificulty)
@@ -173,7 +189,7 @@
 
 (defclass Games_by_category
 	(is-a Game)
-	(role concrete))
+	(role abstract))
 
 (defclass Game_family_cat
 	(is-a Games_by_category)
@@ -201,9 +217,9 @@
 
 (defclass Games_by_duration
 	(is-a Game)
-	(role concrete))
+	(role abstract))
 
-(defclass Game_long_duration
+(defclass Game_short_duration
 	(is-a Games_by_duration)
 	(role concrete))
 
@@ -211,15 +227,28 @@
 	(is-a Games_by_duration)
 	(role concrete))
 
-(defclass Game_short_duration
+(defclass Game_long_duration
 	(is-a Games_by_duration)
+	(role concrete))
+
+(defclass Game_by_style
+	(is-a Game)
+	(role abstract))
+
+(defclass Game_single_player_style
+	(is-a Game_by_style)
+	(role concrete))
+
+(defclass Game_cooperative_style
+	(is-a Game_by_style)
 	(role concrete))
 
 (defclass Manufacturer
 	(is-a USER)
 	(role concrete)
 	(single-slot Manufacturer_name
-		(type STRING)
+		(type SYMBOL)
+		(allowed-values Cocktail_Games)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot Manufacturer_location
@@ -243,19 +272,22 @@
 
 (defclass Location
 	(is-a USER)
-	(role concrete))
-
-(defclass Location_continent
-	(is-a Location)
-	(role concrete))
-
-(defclass Location_country
-	(is-a Location)
-	(role concrete))
-
-(defclass Location_city
-	(is-a Location)
-	(role concrete))
+	(role concrete)
+	(single-slot Continent
+		(type SYMBOL)
+		(allowed-values Europe America)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot City
+		(type SYMBOL)
+		(allowed-values Ohio Madrid)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot Country
+		(type SYMBOL)
+		(allowed-values United_States)
+;+		(cardinality 1 1)
+		(create-accessor read-write)))
 
 (defclass Store
 	(is-a USER)
