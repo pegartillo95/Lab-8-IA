@@ -1,4 +1,42 @@
-; Tue Mar 15 10:21:40 CET 2016
+; Tue Mar 15 10:54:05 CET 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
+
+([Practica7_Class0] of  Location
+
+	(City "Ohio")
+	(Continent "America")
+	(Country "United_States"))
+
+([Practica7_Class1] of  Location
+
+	(City "Madrid")
+	(Continent "Europe")
+	(Country "Spain"))
+
+([Practica7_Class4] of  Store
+
+	(Store_games [Practica7_Class7])
+	(Store_location [Practica7_Class5])
+	(Store_name "Bazinga_shop"))
+
+([Practica7_Class5] of  Manufacturer
+
+	(Manufacturer_location [Practica7_Class6])
+	(Manufacturer_name Cocktail_Games))
+
+([Practica7_Class6] of  Location
+
+	(City "Madrid")
+	(Continent "Europe")
+	(Country "Spain"))
+
+([Practica7_Class7] of  Game
+
+	(category Adventure)
+	(difficulty media)
+	(duration 60)
+	(name "Puerto_Rico")
+	(price 20.0)
+	(style cooperative))
