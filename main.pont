@@ -1,4 +1,4 @@
-; Tue Mar 15 10:54:05 CET 2016
+; Tue Mar 29 10:30:13 CEST 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -7,6 +7,10 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
+	(multislot made_category
+		(type SYMBOL)
+		(allowed-values Adventure Sports Puzzle Family Rol Strategy)
+		(create-accessor read-write))
 	(multislot Store_games
 		(type INSTANCE)
 ;+		(allowed-classes Game)
@@ -33,6 +37,15 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot manufacturer
+		(type INSTANCE)
+;+		(allowed-classes Manufacturer)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot Continent
 		(type STRING)
 ;+		(cardinality 1 1)
@@ -42,9 +55,22 @@
 		(allowed-values cooperative single_player)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Store_location
+	(single-slot %3AKB-SAVE
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot Store_location
 		(type INSTANCE)
-;+		(allowed-classes Manufacturer)
+;+		(allowed-classes Location)
+		(create-accessor read-write))
+	(single-slot %3ASTARTUP-FILE
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ASTARTUP-EXPRESSION
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot difficulty
@@ -69,11 +95,24 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot Practica7_Class25
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot duration
 		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot Practica7_Class25
+	(single-slot Seller_stores
+		(type INSTANCE)
+;+		(allowed-classes Store)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Practica7_Class10008
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -85,19 +124,119 @@
 		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot Developper_name
+		(type SYMBOL)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot category
 		(type SYMBOL)
 		(allowed-values Adventure Sports Puzzle Family Rol Strategy)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot Developper_name
-		(type SYMBOL)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot Manufacturer_location
 		(type INSTANCE)
 ;+		(allowed-classes Location)
 		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-ENGINE
+	(is-a %3ASYSTEM-CLASS)
+	(role concrete)
+	(single-slot %3ASTARTUP-FILE
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ASTARTUP-EXPRESSION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFINITION
+	(is-a %3ASYSTEM-CLASS)
+	(role abstract)
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3AKB-SAVE
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+		(default FALSE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFGLOBAL
+	(is-a %3AJESS-DEFINITION)
+	(role concrete))
+
+(defclass %3AJESS-DEFTEMPLATE
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFFACTS
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFMESSAGE-HANDLER
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-DEFMETHOD
+	(is-a %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3ARULE
+	(is-a %3ASYSTEM-CLASS)
+	(role abstract)
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-RULE
+	(is-a %3AJESS-DEFINITION %3ARULE)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
+		(create-accessor read-write)))
+
+(defclass %3AFUNCTION
+	(is-a %3ASYSTEM-CLASS)
+	(role abstract)
+	(single-slot %3ADEFINITION-NAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ADEFINITION
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass %3AJESS-FUNCTION
+	(is-a %3AFUNCTION %3AJESS-DEFINITION)
+	(role concrete)
+	(multislot %3ADOCUMENTATION
+		(type STRING)
 		(create-accessor read-write)))
 
 (defclass Game
@@ -113,8 +252,13 @@
 		(allowed-values cooperative single_player)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot name_
-		(type STRING)
+	(single-slot category
+		(type SYMBOL)
+		(allowed-values Adventure Sports Puzzle Family Rol Strategy)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot duration
+		(type INTEGER)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot price
@@ -122,14 +266,19 @@
 		(range 0.0 %3FVARIABLE)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot duration
-		(type INTEGER)
+	(single-slot name_
+		(type STRING)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
-	(single-slot category
-		(type SYMBOL)
-		(allowed-values Adventure Sports Puzzle Family Rol Strategy)
-;+		(cardinality 1 1)
+	(single-slot Seller_stores
+		(type INSTANCE)
+;+		(allowed-classes Store)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot manufacturer
+		(type INSTANCE)
+;+		(allowed-classes Manufacturer)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass Game_by_age
@@ -273,6 +422,10 @@
 (defclass Designer
 	(is-a USER)
 	(role concrete)
+	(multislot made_category
+		(type SYMBOL)
+		(allowed-values Adventure Sports Puzzle Family Rol Strategy)
+		(create-accessor read-write))
 	(multislot Designer_location
 		(type INSTANCE)
 ;+		(allowed-classes Location)
@@ -306,10 +459,9 @@
 		(type INSTANCE)
 ;+		(allowed-classes Game)
 		(create-accessor read-write))
-	(single-slot Store_location
+	(multislot Store_location
 		(type INSTANCE)
-;+		(allowed-classes Manufacturer)
-;+		(cardinality 0 1)
+;+		(allowed-classes Location)
 		(create-accessor read-write))
 	(single-slot Store_name
 		(type STRING)
