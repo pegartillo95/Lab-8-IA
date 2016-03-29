@@ -1,4 +1,4 @@
-; Tue Mar 29 10:30:13 CEST 2016
+; Tue Mar 29 10:44:16 CEST 2016
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -20,17 +20,17 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[Practica7_ProjectKB_Class10361]
-		[Practica7_ProjectKB_Class10362]
-		[Practica7_ProjectKB_Class10363]
-		[Practica7_ProjectKB_Class10364]
-		[Practica7_ProjectKB_Class10365]
-		[Practica7_ProjectKB_Class10366]
-		[Practica7_ProjectKB_Class10367]
-		[Practica7_ProjectKB_Class10368]
-		[Practica7_ProjectKB_Class10369]
-		[Practica7_ProjectKB_Class10370]
-		[Practica7_ProjectKB_Class10371]))
+		[Practica7_ProjectKB_Class10375]
+		[Practica7_ProjectKB_Class10376]
+		[Practica7_ProjectKB_Class10377]
+		[Practica7_ProjectKB_Class10378]
+		[Practica7_ProjectKB_Class10379]
+		[Practica7_ProjectKB_Class10380]
+		[Practica7_ProjectKB_Class10381]
+		[Practica7_ProjectKB_Class10382]
+		[Practica7_ProjectKB_Class10383]
+		[Practica7_ProjectKB_Class10384]
+		[Practica7_ProjectKB_Class10385]))
 
 ([CLSES_TAB] of  Widget
 
@@ -82,9 +82,9 @@
 ([KB_724723_Class1] of  Map
 
 	(entries
-		[Practica7_ProjectKB_Class10372]
-		[Practica7_ProjectKB_Class10373]
-		[Practica7_ProjectKB_Class10374]))
+		[Practica7_ProjectKB_Class10386]
+		[Practica7_ProjectKB_Class10387]
+		[Practica7_ProjectKB_Class10388]))
 
 ([KB_724723_Class100] of  String
 
@@ -913,76 +913,76 @@
 ([Practica7_ProjectKB_Class10352] of  Property_List
 )
 
-([Practica7_ProjectKB_Class10361] of  String
+([Practica7_ProjectKB_Class10375] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([Practica7_ProjectKB_Class10362] of  String
+([Practica7_ProjectKB_Class10376] of  String
 
 	(name "Location")
 	(string_value "City{-}Continent{-}Country"))
 
-([Practica7_ProjectKB_Class10363] of  String
+([Practica7_ProjectKB_Class10377] of  String
 
 	(name "Game")
 	(string_value "name"))
 
-([Practica7_ProjectKB_Class10364] of  String
+([Practica7_ProjectKB_Class10378] of  String
 
 	(name ":FUNCTION")
 	(string_value "%3ADEFINITION-NAME"))
 
-([Practica7_ProjectKB_Class10365] of  String
+([Practica7_ProjectKB_Class10379] of  String
 
 	(name ":RULE")
 	(string_value "%3ADEFINITION-NAME"))
 
-([Practica7_ProjectKB_Class10366] of  String
+([Practica7_ProjectKB_Class10380] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([Practica7_ProjectKB_Class10367] of  String
+([Practica7_ProjectKB_Class10381] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([Practica7_ProjectKB_Class10368] of  String
+([Practica7_ProjectKB_Class10382] of  String
 
 	(name "Manufacturer")
 	(string_value "Manufacturer_name"))
 
-([Practica7_ProjectKB_Class10369] of  String
+([Practica7_ProjectKB_Class10383] of  String
 
 	(name "Store")
 	(string_value "Store_name"))
 
-([Practica7_ProjectKB_Class10370] of  String
+([Practica7_ProjectKB_Class10384] of  String
 
 	(name "Designer")
 	(string_value "Designer_name"))
 
-([Practica7_ProjectKB_Class10371] of  String
+([Practica7_ProjectKB_Class10385] of  String
 
 	(name ":JESS-DEFINITION")
 	(string_value "%3ADEFINITION-NAME"))
 
-([Practica7_ProjectKB_Class10372] of  Map_Entry
+([Practica7_ProjectKB_Class10386] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([Practica7_ProjectKB_Class10373] of  Map_Entry
+([Practica7_ProjectKB_Class10387] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([Practica7_ProjectKB_Class10374] of  Map_Entry
+([Practica7_ProjectKB_Class10388] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
