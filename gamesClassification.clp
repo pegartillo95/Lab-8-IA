@@ -33,8 +33,4 @@
  (slot location)
  (slot name))
 
-(deffacts ini
-Location (city Lugo)(continent Europe)(country Spain)
-Manufacturer(location Madrid)(name Cocktail_Games)
-
- Game (category Strategy) (difficulty easy) (duration 30) (manufacturer Yoigo) (name "go") (price 10) (seller_store Game) (style single_player))
+ 
